@@ -1,0 +1,12 @@
+groups:
+  - name: api-alerts
+    rules:
+      - alert: APIDown
+        expr: up{job="cloud-devops-task-api"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Cloud DevOps Task API is down"
+          description: "Prometheus cannot reach the API."
+          
