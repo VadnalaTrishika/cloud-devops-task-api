@@ -26,9 +26,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Test FastAPI application
+      - name: Run automated tests
         run: |
-          python -c "from main import app; print('FastAPI application loaded successfully')"
+          python -m pytest
 
       - name: Build Docker image
         run: docker build -t cloud-devops-task-api .
